@@ -414,47 +414,6 @@
             font-weight: 500;
         }
 
-        .chart-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 40px 0;
-        }
-
-        .pie-chart-wrapper, .bar-chart-wrapper {
-            background: #f8fafc;
-            border-radius: 16px;
-            padding: 30px;
-            border: 1px solid #e2e8f0;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .pie-chart-wrapper:hover, .bar-chart-wrapper:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .chart-subtitle-small {
-            color: #2d3748;
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 25px;
-            text-align: center;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 15px;
-        }
-
-        .mountain-chart-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(to bottom, #f8fafc 0%, #e2e8f0 100%);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid #cbd5e0;
-        }
-
         .mountain-chart-svg {
             width: 100%;
             height: 100%;
@@ -473,7 +432,53 @@
             transform: translateY(-1px);
         }
 
-        .mountain-labels {
+        .chart-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 40px 0;
+        }
+        .bar-chart-wrapper {
+            background: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .bar-chart-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .chart-subtitle-small {
+            color: #2d3748;
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 15px;
+        }
+
+        .mountain-chart-main {
+            width: 100%;
+            margin: 30px 0;
+        }
+
+        .mountain-chart-container-main {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            border: 1px solid #cbd5e0;
+        }
+
+        .mountain-labels-main {
             position: absolute;
             top: 0;
             left: 0;
@@ -482,7 +487,7 @@
             pointer-events: none;
         }
 
-        .mountain-label {
+        .mountain-label-main {
             position: absolute;
             display: flex;
             align-items: center;
@@ -490,24 +495,27 @@
             pointer-events: auto;
         }
 
-        .label-line-mountain {
-            width: 50px;
+        .label-line-main {
+            width: 60px;
             height: 2px;
             background: #4a5568;
-            margin-right: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            margin-right: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        .mountain-label-text {
-            background: rgba(255, 255, 255, 0.95);
+        .mountain-label-text-main {
+            background: rgba(255, 255, 255, 0.98);
             color: #2d3748;
-            padding: 6px 12px;
-            border-radius: 20px;
+            padding: 8px 15px;
+            border-radius: 25px;
             font-size: 0.85rem;
-            font-weight: 600;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(74, 85, 104, 0.2);
+            white-space: nowrap;
+            z-index: 10;
+            position: relative;
         }
 
         .bar-chart {
@@ -725,18 +733,18 @@
                 height: 30px;
             }
 
-            .mountain-chart-container {
-                height: 300px;
+            .mountain-chart-container-main {
+                height: 350px;
             }
 
-            .mountain-label-text {
-                font-size: 0.75rem;
-                padding: 4px 8px;
+            .mountain-label-text-main {
+                font-size: 0.8rem;
+                padding: 6px 10px;
             }
 
-            .label-line-mountain {
-                width: 30px;
-                margin-right: 8px;
+            .label-line-main {
+                width: 40px;
+                margin-right: 10px;
             }
         }
     </style>
@@ -744,7 +752,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="src/QRI.png" alt="Healthcare Logo" class="logo">
+            <img src="src/logo.jpg" alt="Healthcare Logo" class="logo">
             <h1>Healthcare Department Dashboard</h1>
             <p>PHYS+A2:K310THERAPY - QRI Performance Overview</p>
             <div class="year-badge">📅 Performance Year: 2024</div>
@@ -934,228 +942,217 @@
             </div>
 
             <!-- Professional Charts Section -->
-            <div class="chart-section">
-                <h3 class="chart-title">DEPARTMENT PERFORMANCE ANALYTICS</h3>
-                <p class="chart-subtitle">Patient Distribution & Performance Metrics - 2024 First Quarter</p>
-                
-                <!-- Interactive Charts Container -->
-                <div class="chart-container">
-                    <div class="pie-chart-wrapper">
-                        <h4 class="chart-subtitle-small">Patient Distribution by Department</h4>
-                        <div class="mountain-chart-container">
-                            <svg viewBox="0 0 800 400" class="mountain-chart-svg">
-                                <defs>
-                                    <linearGradient id="mountain1" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:0.8" />
-                                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:0.4" />
-                                    </linearGradient>
-                                    <linearGradient id="mountain2" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#764ba2;stop-opacity:0.7" />
-                                        <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.3" />
-                                    </linearGradient>
-                                    <linearGradient id="mountain3" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
-                                        <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0.2" />
-                                    </linearGradient>
-                                    <linearGradient id="mountain4" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#a855f7;stop-opacity:0.5" />
-                                        <stop offset="100%" style="stop-color:#c084fc;stop-opacity:0.15" />
-                                    </linearGradient>
-                                    <linearGradient id="mountain5" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#c084fc;stop-opacity:0.4" />
-                                        <stop offset="100%" style="stop-color:#ddd6fe;stop-opacity:0.1" />
-                                    </linearGradient>
-                                    <linearGradient id="mountain6" x1="0%" y1="0%" x2="0%" y2="100%">
-                                        <stop offset="0%" style="stop-color:#ddd6fe;stop-opacity:0.3" />
-                                        <stop offset="100%" style="stop-color:#f3f4f6;stop-opacity:0.05" />
-                                    </linearGradient>
-                                </defs>
-                                
-                                <!-- Mountain layers from back to front -->
-                                
-                                <!-- Hydrotherapy 1% (smallest) -->
-                                <path d="M 0 400 L 100 395 L 200 392 L 300 390 L 400 389 L 500 390 L 600 392 L 700 395 L 800 400 Z" 
-                                      fill="url(#mountain6)" class="mountain-layer"/>
-                                
-                                <!-- Oncology 3% -->
-                                <path d="M 0 400 L 80 380 L 160 365 L 240 355 L 320 350 L 400 352 L 480 358 L 560 368 L 640 380 L 720 390 L 800 400 Z" 
-                                      fill="url(#mountain5)" class="mountain-layer"/>
-                                
-                                <!-- Pediatric PT 8% -->
-                                <path d="M 0 400 L 70 350 L 140 310 L 210 280 L 280 260 L 350 255 L 420 265 L 490 285 L 560 315 L 630 350 L 700 380 L 800 400 Z" 
-                                      fill="url(#mountain4)" class="mountain-layer"/>
-                                
-                                <!-- Speech Language Pathology 25% -->
-                                <path d="M 0 400 L 60 280 L 120 200 L 180 150 L 240 120 L 300 105 L 360 100 L 420 110 L 480 130 L 540 160 L 600 200 L 660 250 L 720 300 L 800 400 Z" 
-                                      fill="url(#mountain3)" class="mountain-layer"/>
-                                
-                                <!-- OPD 27% -->
-                                <path d="M 0 400 L 50 260 L 100 180 L 150 120 L 200 80 L 250 55 L 300 45 L 350 50 L 400 65 L 450 90 L 500 125 L 550 170 L 600 220 L 650 270 L 700 320 L 800 400 Z" 
-                                      fill="url(#mountain2)" class="mountain-layer"/>
-                                
-                                <!-- Female Outpatient PT 36% (largest) -->
-                                <path d="M 0 400 L 40 240 L 80 150 L 120 90 L 160 50 L 200 25 L 240 15 L 280 10 L 320 15 L 360 30 L 400 55 L 440 90 L 480 135 L 520 190 L 560 250 L 600 310 L 640 360 L 680 390 L 800 400 Z" 
-                                      fill="url(#mountain1)" class="mountain-layer"/>
-                            </svg>
-                            
-                            <!-- Mountain Labels -->
-                            <div class="mountain-labels">
-                                <!-- Female PT - Main peak -->
-                                <div class="mountain-label" style="left: 20%; top: 5%;">
-                                    <div class="label-line-mountain"></div>
-                                    <span class="mountain-label-text">Female Outpatient PT – 36%</span>
-                                </div>
-                                
-                                <!-- OPD -->
-                                <div class="mountain-label" style="left: 30%; top: 25%;">
-                                    <div class="label-line-mountain"></div>
-                                    <span class="mountain-label-text">OPD General – 27%</span>
-                                </div>
-                                
-                                <!-- SLP -->
-                                <div class="mountain-label" style="left: 45%; top: 45%;">
-                                    <div class="label-line-mountain"></div>
-                                    <span class="mountain-label-text">Speech Language Pathology – 25%</span>
-                                </div>
-                                
-                                <!-- Pediatric PT -->
-                                <div class="mountain-label" style="left: 35%; top: 65%;">
-                                    <div class="label-line-mountain"></div>
-                                    <span class="mountain-label-text">Pediatric PT – 8%</span>
-                                </div>
-                                
-                                <!-- Oncology -->
-                                <div class="mountain-label" style="left: 20%; top: 80%;">
-                                    <div class="label-line-mountain"></div>
-                                    <span class="mountain-label-text">Oncology & Lymphedema – 3%</span>
-                                </div>
-                                
-                                <!-- Hydrotherapy -->
-                                <div class="mountain-label" style="left: 10%; top: 92%;">
-                                    <div class="label-line-mountain"></div>
-                                    <span class="mountain-label-text">Hydrotherapy – 1%</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<div class="chart-section">
+    <h3 class="chart-title">OUTPATIENT STATISTICS</h3>
+    <p class="chart-subtitle">NO OF PATIENT BENEFITED FROM THE QRI OUTPATIENT SERVICE – FIRST QUARTER</p>
+    
+    <!-- Interactive Charts Container -->
+    <div class="chart-container">
+        <div class="mountain-chart-main">
+            <div class="mountain-chart-container-main">
+                <svg viewBox="0 0 1200 700" class="mountain-chart-svg">
+                    <defs>
+                        <!-- Purple gradient from dark to light based on values -->
+                        <linearGradient id="mainTriangleFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#581C87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6B21A8;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="femaleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B0764;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#4C1D95;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="opdGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5B21B6;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:0.8" />
+                        </linearGradient>
+                        <linearGradient id="slpGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.7" />
+                        </linearGradient>
+                        <linearGradient id="pediatricGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#A855F7;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#C084FC;stop-opacity:0.6" />
+                        </linearGradient>
+                        <linearGradient id="oncologyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#DDD6FE;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#E9D5FF;stop-opacity:0.5" />
+                        </linearGradient>
+                        <linearGradient id="hydroGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:0.5" />
+                            <stop offset="100%" style="stop-color:#FAF5FF;stop-opacity:0.4" />
+                        </linearGradient>
+                    </defs>
                     
-                    <!-- Interactive Bar Chart -->
-                    <div class="bar-chart-wrapper">
-                        <h4 class="chart-subtitle-small">Total Visits by Department</h4>
-                        <div class="bar-chart">
-                            <div class="bar-item">
-                                <div class="bar-label">Female PT</div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
-                                        <span class="bar-value counter">56,577</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bar-item">
-                                <div class="bar-label">OPD</div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 93%; background: linear-gradient(90deg, #764ba2, #8b5cf6);">
-                                        <span class="bar-value counter">52,740</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bar-item">
-                                <div class="bar-label">SLP</div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 59%; background: linear-gradient(90deg, #8b5cf6, #a855f7);">
-                                        <span class="bar-value counter">33,462</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bar-item">
-                                <div class="bar-label">Pediatric PT</div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 31%; background: linear-gradient(90deg, #a855f7, #c084fc);">
-                                        <span class="bar-value counter">17,430</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bar-item">
-                                <div class="bar-label">Hydro</div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 21%; background: linear-gradient(90deg, #c084fc, #ddd6fe);">
-                                        <span class="bar-value counter">11,815</span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="bar-item">
-                                <div class="bar-label">Oncology</div>
-                                <div class="bar-container">
-                                    <div class="bar-fill" style="width: 17%; background: linear-gradient(90deg, #ddd6fe, #f3f4f6);">
-                                        <span class="bar-value counter">9,668</span>
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Main large triangle filled with dark purple -->
+                    <path d="M 200 550 L 600 120 L 1000 550 Z" 
+                          fill="url(#mainTriangleFill)" stroke="#374151" stroke-width="3"/>
+                    
+                    <!-- Mountain peaks inside the triangle -->
+                    
+                    <!-- Female Outpatient PT 36% - tallest peak -->
+                    <path d="M 350 550 L 450 200 L 550 550 Z" 
+                          fill="url(#femaleGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- OPD 27% - second tallest peak -->
+                    <path d="M 500 550 L 580 250 L 660 550 Z" 
+                          fill="url(#opdGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Speech Language Pathology 25% - third peak -->
+                    <path d="M 620 550 L 680 270 L 740 550 Z" 
+                          fill="url(#slpGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Pediatric PT 8% - smaller peak -->
+                    <path d="M 250 550 L 320 400 L 390 550 Z" 
+                          fill="url(#pediatricGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Oncology & Lymphedema 3% - small peak -->
+                    <path d="M 700 550 L 750 450 L 800 550 Z" 
+                          fill="url(#oncologyGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Hydrotherapy 1% - smallest peak -->
+                    <path d="M 820 550 L 850 500 L 880 550 Z" 
+                          fill="url(#hydroGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                          
+                    <!-- Connecting lines from triangles to labels (BLACK) -->
+                    
+                    <!-- Female PT line -->
+                    <line x1="450" y1="300" x2="100" y2="100" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- OPD line -->
+                    <line x1="580" y1="350" x2="800" y2="150" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- SLP line -->
+                    <line x1="680" y1="380" x2="1000" y2="300" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Pediatric PT line -->
+                    <line x1="320" y1="480" x2="50" y2="420" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Oncology line -->
+                    <line x1="750" y1="500" x2="950" y2="580" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Hydrotherapy line -->
+                    <line x1="850" y1="525" x2="1050" y2="650" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Labels positioned inside canvas -->
+                    
+                    <!-- Female Outpatient PT - top left inside -->
+                    <text x="110" y="110" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Female Outpatient Physiotherapy – 36%
+                    </text>
+                    
+                    <!-- OPD - top right inside -->
+                    <text x="810" y="160" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        OPD General – 27%
+                    </text>
+                    
+                    <!-- Speech Language Pathology - right side inside -->
+                    <text x="820" y="310" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Speech Language Pathology – 25%
+                    </text>
+                    
+                    <!-- Pediatric PT - left side inside -->
+                    <text x="60" y="430" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Pediatric Physical Therapy – 8%
+                    </text>
+                    
+                    <!-- Oncology - bottom right inside -->
+                    <text x="780" y="590" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Oncology & Lymphedema – 3%
+                    </text>
+                    
+                    <!-- Hydrotherapy - bottom right inside -->
+                    <text x="880" y="660" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Hydrotherapy – 1%
+                    </text>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Interactive Bar Chart -->
+        <div class="bar-chart-wrapper">
+            <h4 class="chart-subtitle-small">Total Visits by Department</h4>
+            <div class="bar-chart">
+                <div class="bar-item">
+                    <div class="bar-label">Female PT</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                            <span class="bar-value counter">56,577</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Enhanced Performance Metrics -->
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <h5>Highest Patient Volume</h5>
-                        <div class="metric-value">Female Outpatient PT</div>
-                        <div class="metric-detail">8,014 new patients</div>
-                    </div>
-                    <div class="metric-card">
-                        <h5>Most Visits</h5>
-                        <div class="metric-value">Female Outpatient PT</div>
-                        <div class="metric-detail">56,577 total visits</div>
-                    </div>
-                    <div class="metric-card">
-                        <h5>Highest No-Show Rate</h5>
-                        <div class="metric-value">Oncology & Lymphedema</div>
-                        <div class="metric-detail">18.3% no-show rate</div>
-                    </div>
-                    <div class="metric-card">
-                        <h5>Longest Wait Time</h5>
-                        <div class="metric-value">OPD (Non-Qatari)</div>
-                        <div class="metric-detail">145.75 days average</div>
-                    </div>
-                </div>
-            </div>                                        <span class="bar-value counter">9,668</span>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="bar-item">
+                    <div class="bar-label">OPD</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 93%; background: linear-gradient(90deg, #764ba2, #8b5cf6);">
+                            <span class="bar-value counter">52,740</span>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Enhanced Performance Metrics -->
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <h5>Highest Patient Volume</h5>
-                        <div class="metric-value">Female Outpatient PT</div>
-                        <div class="metric-detail">8,014 new patients</div>
+                <div class="bar-item">
+                    <div class="bar-label">SLP</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 59%; background: linear-gradient(90deg, #8b5cf6, #a855f7);">
+                            <span class="bar-value counter">33,462</span>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <h5>Most Visits</h5>
-                        <div class="metric-value">Female Outpatient PT</div>
-                        <div class="metric-detail">56,577 total visits</div>
+                </div>
+                
+                <div class="bar-item">
+                    <div class="bar-label">Pediatric PT</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 31%; background: linear-gradient(90deg, #a855f7, #c084fc);">
+                            <span class="bar-value counter">17,430</span>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <h5>Highest No-Show Rate</h5>
-                        <div class="metric-value">Oncology & Lymphedema</div>
-                        <div class="metric-detail">18.3% no-show rate</div>
+                </div>
+                
+                <div class="bar-item">
+                    <div class="bar-label">Hydro</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 21%; background: linear-gradient(90deg, #c084fc, #ddd6fe);">
+                            <span class="bar-value counter">11,815</span>
+                        </div>
                     </div>
-                    <div class="metric-card">
-                        <h5>Longest Wait Time</h5>
-                        <div class="metric-value">OPD (Non-Qatari)</div>
-                        <div class="metric-detail">145.75 days average</div>
+                </div>
+                
+                <div class="bar-item">
+                    <div class="bar-label">Oncology</div>
+                    <div class="bar-container">
+                        <div class="bar-fill" style="width: 17%; background: linear-gradient(90deg, #ddd6fe, #f3f4f6);">
+                            <span class="bar-value counter">9,668</span>
+                        </div>
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+    
+    <!-- Enhanced Performance Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <h5>Highest Patient Volume</h5>
+            <div class="metric-value">Female Outpatient PT</div>
+            <div class="metric-detail">8,014 new patients</div>
+        </div>
+        <div class="metric-card">
+            <h5>Most Visits</h5>
+            <div class="metric-value">Female Outpatient PT</div>
+            <div class="metric-detail">56,577 total visits</div>
+        </div>
+        <div class="metric-card">
+            <h5>Highest No-Show Rate</h5>
+            <div class="metric-value">Oncology & Lymphedema</div>
+            <div class="metric-detail">18.3% no-show rate</div>
+        </div>
+        <div class="metric-card">
+            <h5>Longest Wait Time</h5>
+            <div class="metric-value">OPD (Non-Qatari)</div>
+            <div class="metric-detail">145.75 days average</div>
+        </div>
+    </div>
+</div>
             <button class="close-button" onclick="closeDepartment()">Close Section</button>
         </div>
 
