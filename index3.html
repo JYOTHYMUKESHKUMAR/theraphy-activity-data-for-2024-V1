@@ -83,88 +83,6 @@
             box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
         }
 
-        /* Main Dashboard Overview - Always Visible */
-        .main-dashboard {
-            background: white;
-            border-radius: 16px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-            border: 1px solid #e2e8f0;
-        }
-
-        .dashboard-title {
-            font-size: 2rem;
-            color: #1a202c;
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .kpi-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-
-        .kpi-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-            border: 2px solid #e2e8f0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .kpi-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
-        }
-
-        .kpi-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.15);
-            border-color: #667eea;
-        }
-
-        .kpi-icon {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            display: block;
-        }
-
-        .kpi-number {
-            color: #1a202c;
-            font-size: 2rem;
-            font-weight: 800;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .kpi-label {
-            color: #4a5568;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
         .departments-nav {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -228,64 +146,6 @@
 
         .department-button.active .arrow {
             transform: rotate(90deg);
-        }
-
-        /* Department Performance at a Glance */
-        .performance-overview {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .dept-summary-card {
-            background: linear-gradient(135deg, #ffffff, #f8fafc);
-            border-radius: 12px;
-            padding: 20px;
-            border-left: 5px solid #667eea;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.2s ease;
-        }
-
-        .dept-summary-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .dept-name {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1a202c;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-
-        .dept-name .icon {
-            margin-right: 8px;
-            font-size: 1.2rem;
-        }
-
-        .dept-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .metric-item {
-            text-align: center;
-        }
-
-        .metric-value {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #667eea;
-            display: block;
-        }
-
-        .metric-label {
-            font-size: 0.8rem;
-            color: #4a5568;
-            font-weight: 500;
         }
 
         .department-content {
@@ -448,6 +308,22 @@
             font-weight: 600;
         }
 
+        .total-patients {
+            background: linear-gradient(135deg, #48bb78, #38a169);
+        }
+
+        .total-visits {
+            background: linear-gradient(135deg, #4299e1, #3182ce);
+        }
+
+        .no-show-metrics {
+            background: linear-gradient(135deg, #ed64a6, #d53f8c);
+        }
+
+        .waiting-metrics {
+            background: linear-gradient(135deg, #ed8936, #dd6b20);
+        }
+
         .close-button {
             background: #e53e3e;
             color: white;
@@ -467,86 +343,473 @@
             transform: translateY(-1px);
         }
 
-        /* Alert/Insight Cards */
-        .insights-section {
-            margin: 30px 0;
-        }
-
-        .insights-grid {
+        .summary-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin: 20px 0;
         }
 
-        .insight-card {
-            background: linear-gradient(135deg, #fff5f5, #fed7d7);
-            border-left: 5px solid #e53e3e;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 5px 15px rgba(229, 62, 62, 0.1);
+        .summary-card {
+            background: linear-gradient(135deg, #f0fff4, #e6fffa);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #48bb78;
         }
 
-        .insight-card.positive {
-            background: linear-gradient(135deg, #f0fff4, #c6f6d5);
-            border-left-color: #38a169;
-            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.1);
+        .summary-card .label {
+            font-size: 0.75rem;
+            color: #4a5568;
+            margin-bottom: 5px;
+            font-weight: 600;
         }
 
-        .insight-card.warning {
-            background: linear-gradient(135deg, #fffbeb, #fef5e7);
-            border-left-color: #ed8936;
-            box-shadow: 0 5px 15px rgba(237, 137, 54, 0.1);
-        }
-
-        .insight-title {
+        .summary-card .value {
+            font-size: 1.1rem;
             font-weight: 700;
             color: #1a202c;
-            margin-bottom: 10px;
+        }
+
+        .chart-section {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 25px;
+            margin: 25px 0;
+            color: #1a202c;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+
+        .chart-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.02) 0%, rgba(139, 92, 246, 0.02) 100%);
+            pointer-events: none;
+        }
+
+        .chart-title {
+            font-size: 1.6rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+            color: #1a202c;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chart-subtitle {
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 30px;
+            color: #4a5568;
+            font-weight: 500;
+        }
+
+        .mountain-chart-svg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .mountain-layer {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mountain-layer:hover {
+            filter: brightness(1.1);
+            transform: translateY(-1px);
+        }
+
+        .chart-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .bar-chart-wrapper {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .bar-chart-wrapper:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .chart-subtitle-small {
+            color: #2d3748;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 12px;
+        }
+
+        .mountain-chart-main {
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        .mountain-chart-container-main {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #cbd5e0;
+        }
+
+        .mountain-labels-main {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .mountain-label-main {
+            position: absolute;
             display: flex;
             align-items: center;
+            white-space: nowrap;
+            pointer-events: auto;
         }
 
-        .insight-title .icon {
-            margin-right: 8px;
-            font-size: 1.2rem;
+        .label-line-main {
+            width: 40px;
+            height: 2px;
+            background: #4a5568;
+            margin-right: 10px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
         }
 
-        .insight-text {
-            color: #4a5568;
+        .mountain-label-text-main {
+            background: rgba(255, 255, 255, 0.98);
+            color: #2d3748;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 85, 104, 0.2);
+            white-space: nowrap;
+            z-index: 10;
+            position: relative;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        /* Special styling for oncology bar value */
+	                    
+         .bar-item:last-child .bar-value {
+   	    color: #2d3748 !important;
+            text-shadow: none;
+            left: 5px;
+            right: auto;
+            padding-right: 0;
+            justify-content: flex-start;
+	 }
+
+         @media (max-width: 480px) {
+            .bar-item:last-child .bar-value {
+            font-size: 0.7rem;
+            left: 8px;
+         }
+         }
+
+        .bar-label {
+            color: #2d3748;
+            font-weight: 700;
+            text-align: center;
             font-size: 0.9rem;
-            line-height: 1.5;
+        }
+
+        .bar-container {
+            flex: 1;
+            height: 30px;
+            background: #f1f5f9;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .bar-fill {
+            height: 100%;
+   	    border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            padding-right: 10px;
+            transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .bar-fill::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.3) 50%, transparent 100%);
+            animation: shimmer 2s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .bar-value {
+
+            color: white;
+            font-weight: 800;
+            font-size: 0.8rem;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            z-index: 1;
+            position: relative;
+        }
+
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .metric-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .metric-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .metric-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+            border-color: #667eea;
+        }
+
+        .metric-card h5 {
+            color: #4a5568;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            color: #1a202c;
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .metric-detail {
+            color: #718096;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Interactive Pie Chart Segments */
+        .mountain-layer {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .mountain-layer:hover {
+            filter: brightness(1.1) drop-shadow(0 3px 10px rgba(0,0,0,0.15));
+        }
+
+        /* Animated counters */
+        .counter {
+            animation: countUp 2s ease-out;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .kpi-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .performance-overview {
-                grid-template-columns: 1fr;
-            }
-            
-            .dashboard-title {
-                font-size: 1.5rem;
-            }
-            
-            .dept-metrics {
-                grid-template-columns: 1fr;
-            }
-        }
-
         @media (max-width: 480px) {
             .container {
                 padding: 15px;
             }
             
-            .kpi-grid {
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .year-badge {
+                font-size: 0.8rem;
+                padding: 5px 12px;
+            }
+            
+            .departments-nav {
                 grid-template-columns: 1fr;
             }
             
-            .kpi-number {
-                font-size: 1.5rem;
+            .department-button {
+                padding: 16px;
+                font-size: 0.95rem;
+            }
+            
+            .department-title {
+                font-size: 1.3rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .department-title .icon {
+                margin-bottom: 8px;
+            }
+            
+            .overview-cards {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .summary-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .metrics-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .comprehensive-table {
+                font-size: 0.75rem;
+            }
+            
+            .comprehensive-table th,
+            .comprehensive-table td {
+                padding: 8px 6px;
+            }
+            
+            .chart-title {
+                font-size: 1.3rem;
+            }
+            
+            .chart-subtitle {
+                font-size: 0.85rem;
+                margin-bottom: 20px;
+            }
+            
+            .mountain-chart-container-main {
+                height: 250px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                padding: 30px;
+            }
+            
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .header p {
+                font-size: 1.1rem;
+            }
+            
+            .departments-nav {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .chart-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .bar-item {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .bar-label {
+                text-align: left;
+                min-width: 120px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 40px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .department-title {
+                font-size: 1.8rem;
+            }
+            
+            .mountain-chart-container-main {
+                height: 400px;
             }
         }
     </style>
@@ -554,251 +817,12 @@
 <body>
     <div class="container">
         <div class="header">
+            <img src="src/QRI.png" alt="Healthcare Logo" class="logo">
             <h1>Healthcare Department Dashboard</h1>
             <p>PHYS+A2:K310THERAPY - QRI Performance Overview</p>
             <div class="year-badge">📅 Performance Year: 2024</div>
         </div>
 
-        <!-- MAIN DASHBOARD - Always Visible -->
-        <div class="main-dashboard">
-            <div class="dashboard-title">📊 QRI Healthcare Performance Dashboard 2024</div>
-            
-            <!-- Key Performance Indicators -->
-            <div class="kpi-grid">
-                <div class="kpi-card">
-                    <span class="kpi-icon">👥</span>
-                    <div class="kpi-number">22,308</div>
-                    <div class="kpi-label">Total New Patients</div>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-icon">🏥</span>
-                    <div class="kpi-number">181,692</div>
-                    <div class="kpi-label">Total Visits</div>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-icon">🇶🇦</span>
-                    <div class="kpi-number">12,155</div>
-                    <div class="kpi-label">Qatari Patients</div>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-icon">🌍</span>
-                    <div class="kpi-number">10,153</div>
-                    <div class="kpi-label">Non-Qatari Patients</div>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-icon">⏳</span>
-                    <div class="kpi-number">8,376</div>
-                    <div class="kpi-label">Waiting List Total</div>
-                </div>
-                <div class="kpi-card">
-                    <span class="kpi-icon">📈</span>
-                    <div class="kpi-number">15.8%</div>
-                    <div class="kpi-label">Avg No-Show Rate</div>
-                </div>
-            </div>
-
-            <!-- Department Performance at a Glance -->
-            <h3 style="color: #1a202c; margin-bottom: 20px; font-weight: 700;">Department Performance Summary</h3>
-            <div class="performance-overview">
-                <div class="dept-summary-card">
-                    <div class="dept-name">
-                        <span class="icon">👩‍⚕️</span>
-                        Female Outpatient PT
-                    </div>
-                    <div class="dept-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">8,014</span>
-                            <span class="metric-label">New Patients</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">56,577</span>
-                            <span class="metric-label">Total Visits</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">15.59%</span>
-                            <span class="metric-label">No-Show Rate</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">4,539</span>
-                            <span class="metric-label">Waiting List</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dept-summary-card">
-                    <div class="dept-name">
-                        <span class="icon">🏥</span>
-                        Outpatient Department (OPD)
-                    </div>
-                    <div class="dept-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">6,094</span>
-                            <span class="metric-label">New Patients</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">52,740</span>
-                            <span class="metric-label">Total Visits</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">14%</span>
-                            <span class="metric-label">No-Show Rate</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">145.75d</span>
-                            <span class="metric-label">Non-Q Wait</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dept-summary-card">
-                    <div class="dept-name">
-                        <span class="icon">🗣️</span>
-                        Speech Language Pathology
-                    </div>
-                    <div class="dept-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">5,590</span>
-                            <span class="metric-label">New Patients</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">33,462</span>
-                            <span class="metric-label">Total Visits</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">15.8%</span>
-                            <span class="metric-label">No-Show Rate</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">3,214</span>
-                            <span class="metric-label">Waiting List</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dept-summary-card">
-                    <div class="dept-name">
-                        <span class="icon">🧒</span>
-                        Pediatric Physical Therapy
-                    </div>
-                    <div class="dept-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">1,733</span>
-                            <span class="metric-label">New Patients</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">17,430</span>
-                            <span class="metric-label">Total Visits</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">15.7%</span>
-                            <span class="metric-label">No-Show Rate</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value" style="color: #38a169;">0</span>
-                            <span class="metric-label">Waiting List</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dept-summary-card">
-                    <div class="dept-name">
-                        <span class="icon">🎗️</span>
-                        Oncology & Lymphedema
-                    </div>
-                    <div class="dept-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">634</span>
-                            <span class="metric-label">New Patients</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">9,668</span>
-                            <span class="metric-label">Total Visits</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value" style="color: #e53e3e;">18.3%</span>
-                            <span class="metric-label">No-Show Rate</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">623</span>
-                            <span class="metric-label">Waiting List</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="dept-summary-card">
-                    <div class="dept-name">
-                        <span class="icon">💧</span>
-                        Hydrotherapy Department
-                    </div>
-                    <div class="dept-metrics">
-                        <div class="metric-item">
-                            <span class="metric-value">243</span>
-                            <span class="metric-label">New Patients</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">11,815</span>
-                            <span class="metric-label">Total Visits</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">16%</span>
-                            <span class="metric-label">No-Show Rate</span>
-                        </div>
-                        <div class="metric-item">
-                            <span class="metric-value">51.5d</span>
-                            <span class="metric-label">Qatari Wait</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Key Insights and Alerts -->
-            <div class="insights-section">
-                <h3 style="color: #1a202c; margin-bottom: 20px; font-weight: 700;">Key Performance Insights</h3>
-                <div class="insights-grid">
-                    <div class="insight-card positive">
-                        <div class="insight-title">
-                            <span class="icon">✅</span>
-                            Excellent Performance
-                        </div>
-                        <div class="insight-text">
-                            Pediatric Physical Therapy has achieved zero waiting list - all patients have been given appointments, demonstrating excellent capacity management.
-                        </div>
-                    </div>
-
-                    <div class="insight-card warning">
-                        <div class="insight-title">
-                            <span class="icon">⚠️</span>
-                            Attention Required
-                        </div>
-                        <div class="insight-text">
-                            Oncology & Lymphedema shows the highest no-show rate at 18.3%, requiring focused intervention to improve patient engagement and attendance.
-                        </div>
-                    </div>
-
-                    <div class="insight-card">
-                        <div class="insight-title">
-                            <span class="icon">🎯</span>
-                            Priority Action
-                        </div>
-                        <div class="insight-text">
-                            Female Outpatient PT has the largest waiting list (4,539 patients - all Non-Qatari), requiring capacity expansion or process optimization.
-                        </div>
-                    </div>
-
-                    <div class="insight-card warning">
-                        <div class="insight-title">
-                            <span class="icon">⏰</span>
-                            Wait Time Gap
-                        </div>
-                        <div class="insight-text">
-                            Significant wait time disparity in OPD: 36.75 days for Qatari vs 145.75 days for Non-Qatari patients - nearly 4x difference.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Department Navigation -->
         <div class="departments-nav">
             <button class="department-button" onclick="showDepartment('opd')">
                 <span class="icon">🏥</span>
@@ -830,17 +854,17 @@
                 Female Outpatient Physiotherapy
                 <span class="arrow">▶</span>
             </button>
-            <button class="department-button" onclick="showDepartment('detailed-overview')">
-                <span class="icon">📋</span>
-                Detailed Data Tables
+            <button class="department-button" onclick="showDepartment('overview')">
+                <span class="icon">📊</span>
+                Complete Overview (All Departments)
                 <span class="arrow">▶</span>
             </button>
         </div>
 
-        <!-- Detailed Overview -->
-        <div id="detailed-overview" class="department-content">
+        <!-- Complete Overview -->
+        <div id="overview" class="department-content">
             <div class="department-title">
-                <span class="icon">📋</span>
+                <span class="icon">📊</span>
                 Complete Healthcare Department Overview - 2024
             </div>
 
@@ -954,6 +978,246 @@
                     </tr>
                 </tbody>
             </table>
+
+            <div class="summary-stats">
+                <div class="summary-card">
+                    <div class="label">Total New Patients</div>
+                    <div class="value">22,308</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Total Visits (All)</div>
+                    <div class="value">181,692</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Total Qatari Patients</div>
+                    <div class="value">12,155</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Total Non-Qatari Patients</div>
+                    <div class="value">10,153</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Overall Waiting List</div>
+                    <div class="value">8,376</div>
+                </div>
+                <div class="summary-card">
+                    <div class="label">Average No-Show Rate</div>
+                    <div class="value">15.8%</div>
+                </div>
+            </div>
+
+            <!-- Professional Charts Section -->
+<div class="chart-section">
+    <h3 class="chart-title">OUTPATIENT STATISTICS</h3>
+    <p class="chart-subtitle">NO OF PATIENT BENEFITED FROM THE QRI OUTPATIENT SERVICE – FIRST QUARTER</p>
+    
+    <!-- Interactive Charts Container -->
+    <div class="chart-container">
+        <div class="mountain-chart-main">
+            <div class="mountain-chart-container-main">
+                <svg viewBox="0 0 1200 700" class="mountain-chart-svg">
+                    <defs>
+                        <!-- Purple gradient from dark to light based on values -->
+                        <linearGradient id="mainTriangleFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#581C87;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#6B21A8;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="femaleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#3B0764;stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:#4C1D95;stop-opacity:0.9" />
+                        </linearGradient>
+                        <linearGradient id="opdGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#5B21B6;stop-opacity:0.9" />
+                            <stop offset="100%" style="stop-color:#6D28D9;stop-opacity:0.8" />
+                        </linearGradient>
+                        <linearGradient id="slpGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#7C3AED;stop-opacity:0.8" />
+                            <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.7" />
+                        </linearGradient>
+                        <linearGradient id="pediatricGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#A855F7;stop-opacity:0.7" />
+                            <stop offset="100%" style="stop-color:#C084FC;stop-opacity:0.6" />
+                        </linearGradient>
+                        <linearGradient id="oncologyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#DDD6FE;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#E9D5FF;stop-opacity:0.5" />
+                        </linearGradient>
+                        <linearGradient id="hydroGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                            <stop offset="0%" style="stop-color:#F3E8FF;stop-opacity:0.5" />
+                            <stop offset="100%" style="stop-color:#FAF5FF;stop-opacity:0.4" />
+                        </linearGradient>
+                    </defs>
+                    
+                    <!-- Main large triangle filled with dark purple -->
+                    <path d="M 200 550 L 600 120 L 1000 550 Z" 
+                          fill="url(#mainTriangleFill)" stroke="#374151" stroke-width="3"/>
+                    
+                    <!-- Mountain peaks inside the triangle -->
+                    
+                    <!-- Female Outpatient PT 36% - tallest peak -->
+                    <path d="M 350 550 L 450 200 L 550 550 Z" 
+                          fill="url(#femaleGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- OPD 27% - second tallest peak -->
+                    <path d="M 500 550 L 580 250 L 660 550 Z" 
+                          fill="url(#opdGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Speech Language Pathology 25% - third peak -->
+                    <path d="M 620 550 L 680 270 L 740 550 Z" 
+                          fill="url(#slpGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Pediatric PT 8% - smaller peak -->
+                    <path d="M 250 550 L 320 400 L 390 550 Z" 
+                          fill="url(#pediatricGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Oncology & Lymphedema 3% - small peak -->
+                    <path d="M 700 550 L 750 450 L 800 550 Z" 
+                          fill="url(#oncologyGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                    
+                    <!-- Hydrotherapy 1% - smallest peak -->
+                    <path d="M 820 550 L 850 500 L 880 550 Z" 
+                          fill="url(#hydroGrad)" stroke="#1F2937" stroke-width="2" class="mountain-layer"/>
+                          
+                    <!-- Connecting lines from triangles to labels (BLACK) -->
+                    
+                    <!-- Female PT line -->
+                    <line x1="450" y1="300" x2="100" y2="100" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- OPD line -->
+                    <line x1="580" y1="350" x2="800" y2="150" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- SLP line -->
+                    <line x1="680" y1="380" x2="1000" y2="300" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Pediatric PT line -->
+                    <line x1="320" y1="480" x2="50" y2="420" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Oncology line -->
+                    <line x1="750" y1="500" x2="950" y2="580" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Hydrotherapy line -->
+                    <line x1="850" y1="525" x2="1050" y2="650" stroke="#000000" stroke-width="2" class="connecting-line"/>
+                    
+                    <!-- Labels positioned inside canvas -->
+                    
+                    <!-- Female Outpatient PT - top left inside -->
+                    <text x="110" y="110" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Female Outpatient Physiotherapy – 36%
+                    </text>
+                    
+                    <!-- OPD - top right inside -->
+                    <text x="810" y="160" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        OPD General – 27%
+                    </text>
+                    
+                    <!-- Speech Language Pathology - right side inside -->
+                    <text x="820" y="310" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Speech Language Pathology – 25%
+                    </text>
+                    
+                    <!-- Pediatric PT - left side inside -->
+                    <text x="60" y="430" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Pediatric Physical Therapy – 8%
+                    </text>
+                    
+                    <!-- Oncology - bottom right inside -->
+                    <text x="780" y="590" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Oncology & Lymphedema – 3%
+                    </text>
+                    
+                    <!-- Hydrotherapy - bottom right inside -->
+                    <text x="880" y="660" fill="#000000" font-size="14" font-weight="700" font-family="Arial, sans-serif">
+                        Hydrotherapy – 1%
+                    </text>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- Interactive Bar Chart -->
+<div class="bar-chart-wrapper">
+    <h4 class="chart-subtitle-small">Total Visits by Department</h4>
+    <div class="bar-chart">
+        <div class="bar-item">
+            <div class="bar-label">Female PT</div>
+            <div class="bar-container">
+                <div class="bar-fill" style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2);">
+                    <span class="bar-value counter">56,577</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bar-item">
+            <div class="bar-label">OPD</div>
+            <div class="bar-container">
+                <div class="bar-fill" style="width: 93%; background: linear-gradient(90deg, #764ba2, #8b5cf6);">
+                    <span class="bar-value counter">52,740</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bar-item">
+            <div class="bar-label">SLP</div>
+            <div class="bar-container">
+                <div class="bar-fill" style="width: 59%; background: linear-gradient(90deg, #8b5cf6, #a855f7);">
+                    <span class="bar-value counter">33,462</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bar-item">
+            <div class="bar-label">Pediatric PT</div>
+            <div class="bar-container">
+                <div class="bar-fill" style="width: 31%; background: linear-gradient(90deg, #a855f7, #c084fc);">
+                    <span class="bar-value counter">17,430</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bar-item">
+            <div class="bar-label">Hydro</div>
+            <div class="bar-container">
+                <div class="bar-fill" style="width: 21%; background: linear-gradient(90deg, #c084fc, #ddd6fe);">
+                    <span class="bar-value counter">11,815</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bar-item">
+            <div class="bar-label">Oncology</div>
+            <div class="bar-container">
+                <div class="bar-fill" style="width: 17%; background: linear-gradient(90deg, #ddd6fe, #f3f4f6);">
+                    <span class="bar-value" style="color: #2d3748; left: 5px; position: absolute;">9,668</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Enhanced Performance Metrics -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <h5>Highest Patient Volume</h5>
+            <div class="metric-value">Female Outpatient PT</div>
+            <div class="metric-detail">8,014 new patients</div>
+        </div>
+        <div class="metric-card">
+            <h5>Most Visits</h5>
+            <div class="metric-value">Female Outpatient PT</div>
+            <div class="metric-detail">56,577 total visits</div>
+        </div>
+        <div class="metric-card">
+            <h5>Highest No-Show Rate</h5>
+            <div class="metric-value">Oncology & Lymphedema</div>
+            <div class="metric-detail">18.3% no-show rate</div>
+        </div>
+        <div class="metric-card">
+            <h5>Longest Wait Time</h5>
+            <div class="metric-value">OPD (Non-Qatari)</div>
+            <div class="metric-detail">145.75 days average</div>
+        </div>
+    </div>
+</div>
             <button class="close-button" onclick="closeDepartment()">Close Section</button>
         </div>
 
@@ -965,19 +1229,19 @@
             </div>
             
             <div class="overview-cards">
-                <div class="overview-card">
+                <div class="overview-card total-patients">
                     <h4>Total New Patients</h4>
                     <div class="number">6,094</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card total-visits">
                     <h4>Total Visits</h4>
                     <div class="number">52,740</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card no-show-metrics">
                     <h4>No Show Rate</h4>
                     <div class="number">14%</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card waiting-metrics">
                     <h4>Avg Wait (Qatari)</h4>
                     <div class="number">36.75 days</div>
                 </div>
@@ -1035,19 +1299,19 @@
             </div>
             
             <div class="overview-cards">
-                <div class="overview-card">
+                <div class="overview-card total-patients">
                     <h4>Total New Patients</h4>
                     <div class="number">243</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card total-visits">
                     <h4>Total Visits</h4>
                     <div class="number">11,815</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card no-show-metrics">
                     <h4>No Show Rate</h4>
                     <div class="number">16%</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card waiting-metrics">
                     <h4>Avg Wait (Qatari)</h4>
                     <div class="number">51.5 days</div>
                 </div>
@@ -1105,19 +1369,19 @@
             </div>
             
             <div class="overview-cards">
-                <div class="overview-card">
+                <div class="overview-card total-patients">
                     <h4>Total New Patients</h4>
                     <div class="number">5,590</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card total-visits">
                     <h4>Total Visits</h4>
                     <div class="number">33,462</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card no-show-metrics">
                     <h4>No Show Rate</h4>
                     <div class="number">15.8%</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card waiting-metrics">
                     <h4>Waiting List</h4>
                     <div class="number">3,214</div>
                 </div>
@@ -1182,19 +1446,19 @@
             </div>
             
             <div class="overview-cards">
-                <div class="overview-card">
+                <div class="overview-card total-patients">
                     <h4>Total New Patients</h4>
                     <div class="number">1,733</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card total-visits">
                     <h4>Total Visits</h4>
                     <div class="number">17,430</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card no-show-metrics">
                     <h4>No Show Rate</h4>
                     <div class="number">15.7%</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card waiting-metrics">
                     <h4>Waiting List</h4>
                     <div class="number">0</div>
                 </div>
@@ -1259,19 +1523,19 @@
             </div>
             
             <div class="overview-cards">
-                <div class="overview-card">
+                <div class="overview-card total-patients">
                     <h4>Total New Patients</h4>
                     <div class="number">634</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card total-visits">
                     <h4>Total Visits</h4>
                     <div class="number">9,668</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card no-show-metrics">
                     <h4>No Show Rate</h4>
                     <div class="number">18.3%</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card waiting-metrics">
                     <h4>Waiting List</h4>
                     <div class="number">623</div>
                 </div>
@@ -1336,19 +1600,19 @@
             </div>
             
             <div class="overview-cards">
-                <div class="overview-card">
+                <div class="overview-card total-patients">
                     <h4>Total New Patients</h4>
                     <div class="number">8,014</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card total-visits">
                     <h4>Total Visits</h4>
                     <div class="number">56,577</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card no-show-metrics">
                     <h4>No Show Rate</h4>
                     <div class="number">15.59%</div>
                 </div>
-                <div class="overview-card">
+                <div class="overview-card waiting-metrics">
                     <h4>Waiting List</h4>
                     <div class="number">4,539</div>
                 </div>
@@ -1472,14 +1736,6 @@
             if (event.key === 'Escape') {
                 closeDepartment();
             }
-        });
-
-        // Add counter animation on load
-        document.addEventListener('DOMContentLoaded', function() {
-            const numbers = document.querySelectorAll('.kpi-number');
-            numbers.forEach(number => {
-                number.classList.add('counter');
-            });
         });
     </script>
 </body>
